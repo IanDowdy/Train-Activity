@@ -3,4 +3,4 @@
 Welcome to __Train Scheduler__!  
 
 This simple application allows you to track the names, destinations and the times of arrival
-of accross America!
+accross America!
