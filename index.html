@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Kosugi+Maru|Monoton|Roboto+Slab" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="container-title-closet">
+            <div class="row">
+            <div class="col-lg-4 intro">
+                <h1>Train Scheduler!</h1>
+                <p class="intro">Welcome! Add a train to the schedule by filling out the form below!</p>
+                <img src="assets/images/train-gif.gif" height="225px" width="300px">
+                <!--Turn to a random train gif?-->
+            </div>
+            
+            <div class="col-lg-6 closest"><span id="time">0000</span></div>
+            </div>
+        </div>
+        <br>
+
+        <div class="container-schedule-form">
+            <!--Put in train info-->
+            <div class="row">
+                <div class="col-lg-4 formInput">
+                    <form name="trainForm">
+                        <div class="form-group">
+                            <label for="name">Train Name</label>
+                            <textarea class="form-control" id="trainName" rows="1"></textarea>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label for="destination">Destination</label>
+                            <textarea class="form-control" id="destination" rows="1"></textarea>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label for="frequency">Frequency</label>
+                            <textarea class="form-control" id="frequency" rows="1"></textarea>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label for="firstArrival">Arrival Time</label>
+                            <textarea class="form-control" id="arrivalTime" rows="1"></textarea>
+
+                            <button type="submit" class="btn btn-block btn-outline-light">Add a choo choo!</button>
+                            <!--Submit button and end of form-->
+                        </div>
+
+                    </form>
+                </div>
+
+                
+                <div class="col-lg-1"></div>
+                <div class="col-lg-6 container-schedule">
+                    <!--Train Display Table-->
+                    <table>
+                        <thead>
+                            <tr class="heading">
+                                <th class="tableName">
+                                    <h3>Name</h3>
+                                </th>
+                                <th class="tableDestination">
+                                    <h3>Destination</h3>
+                                </th>
+                                <th class="tableFrequency">
+                                    <h3>Frequency</h3>
+                                </th>
+                                <th class="tableArrival">
+                                    <h3>First Arrival</h3>
+                                </th>
+                            </tr>
+                            
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="assets/js/moment.js"></script>
+</body>
+
+</html>

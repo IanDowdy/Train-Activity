@@ -1,0 +1,110 @@
+body {
+    box-sizing: border-box;
+    background: url(../images/train-background.jpg) no-repeat center center fixed;;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.wrapper {
+    width: 90%;
+    margin: 10px;    
+}
+
+
+h1 {
+    margin: 10px;
+    font-family: 'Monoton', cursive;
+    background-color: rgb(0, 0, 0, .3);
+    word-wrap: break-word;
+    
+    padding-top: 10px;
+    text-align: center;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+.container-title-closet {
+    align-content: center;
+    margin: 10px;
+     
+}
+
+.closest {
+    display: flex;
+    color: #fff;
+    background-color: rgb(0, 0, 0, .3);
+    margin: 15px;
+}
+
+#time {
+    display: flex;
+    align-items: flex-end;
+    
+}
+
+img {
+    margin: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    background-color: rgb(0, 0, 0, .3);
+}
+
+.intro {
+    color: #fff;
+    background-color: rgb(0, 0, 0, .3);
+    font-family: 'Kosugi Maru', sans-serif;
+    margin: 15px;
+    padding: 20px;
+    
+
+}
+
+label {
+    font-family: 'Roboto Slab', serif;
+    color: #fff;
+}
+
+.formInput {
+    background-color: rgb(0, 0, 0, .3);
+    margin-left: 25px;
+    padding-top: 15px;
+}
+
+
+table {
+    border-collapse: separate;
+    border-spacing: 15px;
+    overflow-wrap: break-word;
+    
+}
+
+th {
+    color: #fff;
+    background-color: rgb(0, 0, 0, .3);
+    font-family: 'Kosugi Maru', sans-serif;
+    border-bottom: 1px solid #fff;
+    font-weight: 700;
+    padding: 5px 10px;
+}
+
+.btn-outline-light {
+    margin-top: 25px;
+}
+
+.container-schedule {
+    margin-top: 20px;
+    margin-left: 10px;
+
+}
+
+td {
+    color: #fff;
+    text-align: center;
+    font-size: 25px;
+}
