@@ -8,18 +8,14 @@ let converted;
 let today = moment().format('hh:mm');
 console.log(today);
 
-let nextTrain = 0;
-let tArrTime = 0;
-
-
-function clearForm() {
+function clearForm() {      //Function Called after submission attempts.
   $("#trainName").val("");
   $("#destination").val("");
   $("#frequency").val("");
   $("#firstArrival").val("");
 }
 
-function randomGif() {
+function randomGif() {      //Just because.
   $(".closest").empty();
   
   let i = Math.floor(Math.random() * 14);
@@ -33,19 +29,21 @@ function randomGif() {
 
 
 
-//CANT SEEM TO GET THIS TO WORK THE WAY I WANT. TINKERED FOR A LONG TIME 
+//CANT SEEM TO GET THIS TO WORK THE WAY I WANT, UNSURE HOW TO GET PROPERLY USE THAT SNIPPET ANDREW SENT OUT ON SATURDAY
 function nextTrainArrival(arg1, arg2) {
 
-  let tFrequency = arg1;
+  let tFrequency = arg1; 
   let FirstArrival = arg2;
 
-  let convertArrTime = moment(FirstArrival, "hmm").format("h:mm A");
-  console.log(convertArrTime);
+  //let convertArrTime = moment(FirstArrival, "hmm").format("h:mm A");
+  //console.log(convertArrTime);
 
-  let differenceTimes = moment().diff(convertArrTime, "minutes");
-  let tRemainder = differenceTimes % tFrequency;
+  let differenceTimes = moment().diff(FirstArrival, "minutes");
+  let tRemainder = differenceTimes % tFrequency;    //Specifically I really don't understand how the modulus is supposed to be used here.
   tMinutes = tFrequency - tRemainder;
   tArrival = moment().add(tMinutes, "m").format("hh:mm A");
+
+  console.log(differenceTimes, tFrequency, FirstArrival, tRemainder, tMinutes, tArrival);
 
   return [tMinutes, tArrival]
 }
@@ -56,10 +54,10 @@ function nextTrainArrival(arg1, arg2) {
     $("#choochoo").on("click", function(event) {
       event.preventDefault();
       
-    var trainName = "";
-    var trainDestination = "";
-    var frequency = 0;
-    var firstArrival = "";
+    let trainName = "";
+    let trainDestination = "";
+    let frequency = 0;
+    let firstArrival = "";
 
       // Grabbed values from text boxes
       trainName = $("#trainName").val().trim();
@@ -67,7 +65,7 @@ function nextTrainArrival(arg1, arg2) {
       frequency = $("#frequency").val().trim();
       firstArrival = $("#firstArrival").val().trim();
 
-if( trainName && trainDestination && frequency && firstArrival){
+if( trainName && trainDestination && frequency && firstArrival){  //All forms must contain content
       // Code for handling the push
       database.ref().push({
         Train: trainName,
@@ -77,7 +75,7 @@ if( trainName && trainDestination && frequency && firstArrival){
         DateAdded: today
       });
 
-      clearForm();s
+      clearForm();
     } 
     else {
       console.log("Try again")
@@ -85,18 +83,20 @@ if( trainName && trainDestination && frequency && firstArrival){
     }
     });
 
-    // Firebase watcher .on("child_added"
+    // When a child (element? Key? Value? Data? Object i think..) is changed a snapshot is taken
     database.ref().on("child_added", function(snapshot) {
       // storing the snapshot.val() in a variable for convenience
-      var sv = snapshot.val();
+      let sv = snapshot.val();
 
 
-      // Console.loging the last user's data
+      // Console.logging the last user's data
       console.log(sv.Train);
       console.log(sv.Destination);
       console.log(sv.Frequency);
       console.log(sv.FirstArrival);
 
+
+      //Function to change the user's input into the correct format to be displayed.
       function convertFirstArr() {
         converted = moment(sv.FirstArrival, "hmm").format("h:mm A");
         console.log(converted);
@@ -104,8 +104,8 @@ if( trainName && trainDestination && frequency && firstArrival){
         return converted;
       }
 
-
-      $("#trainSchedule").append(`
+      //add values captured on Firebase to DOM
+      $("#trainSchedule").append(` 
             <tr>
                 <td>${snapshot.val().Train}</td>
                 <td>${snapshot.val().Destination}</td>
@@ -121,6 +121,7 @@ if( trainName && trainDestination && frequency && firstArrival){
       console.log("Errors handled: " + errorObject.code);
     });
 
+    //Play a random train gif everytime submit button is clicked
 $(document).on("click", "#choochoo", randomGif);
 
 
