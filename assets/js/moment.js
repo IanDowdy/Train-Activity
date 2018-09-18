@@ -39,7 +39,7 @@ function nextTrainArrival(arg1, arg2) {
   let tFrequency = arg1;
   let FirstArrival = arg2;
 
-  let convertArrTime = moment(FirstArrival, "hh:mm");
+  let convertArrTime = moment(FirstArrival, "hmm").format("h:mm A");
   console.log(convertArrTime);
 
   let differenceTimes = moment().diff(convertArrTime, "minutes");
@@ -98,7 +98,7 @@ if( trainName && trainDestination && frequency && firstArrival){
       console.log(sv.FirstArrival);
 
       function convertFirstArr() {
-        converted = moment(sv.FirstArrival, "hmm").format("HH:mm");
+        converted = moment(sv.FirstArrival, "hmm").format("h:mm A");
         console.log(converted);
         
         return converted;
@@ -111,7 +111,7 @@ if( trainName && trainDestination && frequency && firstArrival){
                 <td>${snapshot.val().Destination}</td>
                 <td>${snapshot.val().Frequency}</td>
                 <td>${convertFirstArr()}</td>
-                <td>${nextTrainArrival(snapshot.val().Frequency, snapshot.val().FirstArrival)[1]}
+                <td>${nextTrainArrival(snapshot.val().Frequency, snapshot.val().FirstArrival)[0]}
             </tr>
            `);
 
