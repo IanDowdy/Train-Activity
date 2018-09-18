@@ -9,6 +9,20 @@
         crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Kosugi+Maru|Monoton|Roboto+Slab" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/5.5.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBN_dio2XRl0KVZYtnMH92OMuBETly18iI",
+        authDomain: "t-th-2018-c38be.firebaseapp.com",
+        databaseURL: "https://t-th-2018-c38be.firebaseio.com",
+        projectId: "t-th-2018-c38be",
+        storageBucket: "t-th-2018-c38be.appspot.com",
+        messagingSenderId: "548821106108"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"></script>
     <title>Document</title>
 </head>
 
@@ -23,7 +37,7 @@
                 <!--Turn to a random train gif?-->
             </div>
             
-            <div class="col-lg-6 closest"><span id="time">0000</span></div>
+            <div class="col-lg-6 closest"></div>
             </div>
         </div>
         <br>
@@ -44,15 +58,15 @@
                         </div>
                         <br>
                         <div class="form-group">
-                            <label for="frequency">Frequency</label>
+                            <label for="frequency">Frequency (minutes)</label>
                             <textarea class="form-control" id="frequency" rows="1"></textarea>
                         </div>
                         <br>
                         <div class="form-group">
                             <label for="firstArrival">Arrival Time</label>
-                            <textarea class="form-control" id="arrivalTime" rows="1"></textarea>
+                            <textarea class="form-control" id="firstArrival" rows="1"></textarea>
 
-                            <button type="submit" class="btn btn-block btn-outline-light">Add a choo choo!</button>
+                            <button type="submit" id="choochoo"class="btn btn-block btn-outline-light">Add a choo choo!</button>
                             <!--Submit button and end of form-->
                         </div>
 
@@ -60,7 +74,7 @@
                 </div>
 
                 
-                <div class="col-lg-1"></div>
+            
                 <div class="col-lg-6 container-schedule">
                     <!--Train Display Table-->
                     <table>
@@ -78,18 +92,35 @@
                                 <th class="tableArrival">
                                     <h3>First Arrival</h3>
                                 </th>
+                                <th class="arrives">
+                                    <h3>Arrives</h3>
+                                </th>
                             </tr>
                             
                         </thead>
+                        <tbody id="trainSchedule">
+                        <tr>...</tr>
+                        <tr>...</tr>
+                    </tbody>
+
                     </table>
                 </div>
             </div>
         </div>
     </div>
-
-
-
-    <script src="assets/js/moment.js"></script>
+    
+    <!--Scripts-->
+   
+     <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+ <script src="assets/js/moment.js"></script>
+   
+    
+        
+    
+     
 </body>
 
 </html>
